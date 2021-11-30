@@ -1,0 +1,34 @@
+
+.form-container {
+        width: 300px;
+        background: #ffffff;
+        border-radius: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: auto;
+        margin-top: 10px;
+}
+
+.title-name {
+    margin-left: 530px;
+    color: white;
+    background-color: black;
+    font-size: 89px;
+}
+
+.title-background {
+    width: 100vw;
+    margin-top: 300px;
+    height: auto;
+    background-color: black;
+}
+
+.film-name-input {
+    width: 300px;
+    margin-right: 20px;
+}
+
+.search-film-button {
+    width: 70px;
+}

@@ -21,9 +21,7 @@ export const setLoadingSearchAction = (payload: boolean): TActionPayloadType<boo
 
 export const SET_FOUND_DATA_ACTION = 'SET_FOUND_DATA_ACTION';
 
-export const setFoundDataAction = (payload: TFindResponse): TActionPayloadType<TFindResponse> => {
-    return {
+export const setFoundDataAction = (payload: TFindResponse): TActionPayloadType<TFindResponse> => ({
         type: SET_FOUND_DATA_ACTION,
         payload
-    }
-}
+    });

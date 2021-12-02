@@ -6,9 +6,7 @@ class TitleService extends ApiService {
         super('title') 
     }
 
-    find = (searchString: string): Promise<TFindResponse> => {
-        return this.get('find', { params: { q: searchString } });
-    }
+    find = (searchString: string): Promise<TFindResponse> => this.get('find', { params: { q: searchString }});
 }
 
 export const titleService = new TitleService();

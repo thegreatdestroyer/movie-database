@@ -5,7 +5,7 @@ import { TSearchPageActions, TSearchPageStorage } from './types'
 const initialState: TSearchPageStorage = {
     searchText: '',
     isLoading: false,
-    response: null
+    searchResults: null
 }
 
 

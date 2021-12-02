@@ -12,21 +12,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.loader-image {
-    animation: rotateIMDB 1.5s linear infinite;
-    width: 400px;
-    height: 400px;
-}
-
-@keyframes rotateIMDB {
-    0% {
-        transform: rotate(0deg);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid blue;
+    border-right-color: transparent;
+    animation: anim 1s linear infinite;
+  }
+  
+  @keyframes anim {
+    to {
+      transform: rotate(360deg)
     }
-    
-    100% {
-        transform: rotate(360deg);
-    }
-
-}
+  }

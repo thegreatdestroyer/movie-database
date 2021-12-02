@@ -4,7 +4,7 @@ import { SET_FOUND_DATA_ACTION, SET_LOADING_SEARCH_ACTION, SET_SEARCH_TEXT_ACTIO
 export type TSearchPageStorage = {
     searchText: string;
     isLoading: boolean;
-    response: TFindResponse | null;
+    searchResults: TFindResponse | null;
 }
 
 export type TSetSearchTextAction = {

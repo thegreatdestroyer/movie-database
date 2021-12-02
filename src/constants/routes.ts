@@ -3,10 +3,13 @@ import FilmInfo from "../components/film-info/FilmInfo";
 import FilmSearchResults from "../components/film-search-results/FilmSearchResults";
 import { RouteProps } from 'react-router'
 
+export const mainPage = '/main-page';
+export const filmInfo = '/film-info';
+export const filmSearchResults = '/film-search-results'
 
 export const ROUTES: RouteProps[] = [
-    { path: '/main-page', component: SearchPage, exact: true},
-    { path: '/film-info', component: FilmInfo, exact: true},
-    { path: '/film-search-results', component: FilmSearchResults, exact: true}
+    { path: mainPage, component: SearchPage, exact: true},
+    { path: filmInfo, component: FilmInfo, exact: true},
+    { path: filmSearchResults, component: FilmSearchResults, exact: true}
 ];
 

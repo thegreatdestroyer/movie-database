@@ -1,39 +1,35 @@
-import React from 'react';
+import React, { FormEventHandler } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../loader/Loader';
-import { TRootState } from '../../store';
+import { AppDispatch, TRootState } from '../../store';
 import { setSearchTextAction } from '../../store/search-page/actions';
 import { searchFilmActionThunk } from '../../store/search-page/thunk';
 import './SearchPage.css'
 import { useHistory } from 'react-router';
+import { TFindResponse } from '../../services/TitleService/models';
+import { filmSearchResults } from '../../constants/routes';
 
 function SearchPage() {
     const history = useHistory();
-    const searchText = useSelector((state: TRootState) => {
-        return state.searchPage.searchText;
-    });
+    const searchText = useSelector((state: TRootState) =>  state.searchPage.searchText);
 
-    const isLoading = useSelector((state: TRootState) => {
-        return state.searchPage.isLoading;
-    });
+    const isLoading = useSelector((state: TRootState) => state.searchPage.isLoading);
 
     const dispatch = useDispatch();
 
-    const handleSearch = (e: any) => {
+    const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        dispatch(searchFilmActionThunk(searchText));
-        dispatch(setSearchTextAction(''));
+
+        (dispatch(searchFilmActionThunk(searchText)) as unknown as Promise<TFindResponse>).then(() => {
+            dispatch(setSearchTextAction(''));
+            history.push(filmSearchResults);
+        });
     }
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const searchValue = e.target.value;
+    const handleChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
 
-        dispatch(setSearchTextAction(searchValue));
+        dispatch(setSearchTextAction(value));
     }
-
-    const handleOpenResults = () => {
-        history.push("/film-search-results")
-    } 
   
     return (
         <>
@@ -52,8 +48,7 @@ function SearchPage() {
                        value={searchText}>
                        </input>
                 <button type="submit" 
-                        className="search-film-button"
-                        onClick={handleOpenResults}>Поиск</button>
+                        className="search-film-button">Поиск</button>
             </form>
             </>
     )

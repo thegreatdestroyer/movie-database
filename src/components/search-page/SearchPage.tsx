@@ -1,13 +1,13 @@
-import React, { FormEventHandler } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../loader/Loader';
-import { AppDispatch, TRootState } from '../../store';
+import { TRootState } from '../../store';
 import { setSearchTextAction } from '../../store/search-page/actions';
 import { searchFilmActionThunk } from '../../store/search-page/thunk';
 import './SearchPage.css'
 import { useHistory } from 'react-router';
 import { TFindResponse } from '../../services/TitleService/models';
-import { filmSearchResults } from '../../constants/routes';
+import { FILM_SEARCH_RESULTS } from '../../constants/routes';
 
 function SearchPage() {
     const history = useHistory();
@@ -17,12 +17,12 @@ function SearchPage() {
 
     const dispatch = useDispatch();
 
-    const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         (dispatch(searchFilmActionThunk(searchText)) as unknown as Promise<TFindResponse>).then(() => {
             dispatch(setSearchTextAction(''));
-            history.push(filmSearchResults);
+            history.push(FILM_SEARCH_RESULTS);
         });
     }
 
@@ -36,21 +36,21 @@ function SearchPage() {
         {isLoading ? <Loader/> :
             
         (
-            <>
-            <div className="title-background"> 
-            <h2 className="title-name">Movie DB</h2>
+            <div className="container">
+                <div className="title-background"> 
+                    <h2 className="title-name">Movie DB</h2>
+                </div>
+                <form className="form-container" onSubmit={handleSearch}>
+                    <input name="searchField" type="text" 
+                        placeholder="Введите название фильма" 
+                        className="film-name-input"
+                        onChange={handleChange}
+                        value={searchText}>
+                        </input>
+                    <button type="submit" 
+                            className="search-film-button">Поиск</button>
+                </form>
             </div>
-            <form className="form-container" onSubmit={handleSearch}>
-                <input name="searchField" type="text" 
-                       placeholder="Введите название фильма" 
-                       className="film-name-input"
-                       onChange={handleChange}
-                       value={searchText}>
-                       </input>
-                <button type="submit" 
-                        className="search-film-button">Поиск</button>
-            </form>
-            </>
     )
             }
             </>

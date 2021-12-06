@@ -5,7 +5,7 @@ import { RouteProps } from 'react-router'
 
 export const MAIN_PAGE = '/';
 export const FILM_INFO = '/film-info';
-export const FILM_SEARCH_RESULTS = '/film-search-results'
+export const FILM_SEARCH_RESULTS = '/film-search-results/:fillName'
 
 export const ROUTES: RouteProps[] = [
     { path: MAIN_PAGE, component: SearchPage, exact: true},

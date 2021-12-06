@@ -28,7 +28,7 @@ export const searchPageReducer = (state = initialState, action: TSearchPageActio
         case SET_FOUND_DATA_ACTION: {
             return {
                 ...state,
-                response: action.payload
+                searchResults: action.payload
             }
         }
 

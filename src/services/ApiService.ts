@@ -7,15 +7,15 @@ export class ApiService {
     this.baseUrl = baseUrl;
   }
 
-  post = async <P, R>(method: string, param?: P): Promise<R> => {
+  post = async (method: string, param?: any, config?: AxiosRequestConfig) => {
     const url = `api/${this.baseUrl}/${method}`;
-    const { data } = await axios.post(url, param);
-    return data.data;
+    const { data } = await axios.post(url, param, config);
+    return data;
   };
 
   get = async (method: string, config?: AxiosRequestConfig) => {
       const url = `api/${this.baseUrl}/${method}`;
       const { data } = await axios.get(url, config);
-      return data.data;
+      return data;
   }
 }

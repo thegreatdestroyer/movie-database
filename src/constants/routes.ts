@@ -3,7 +3,7 @@ import FilmInfo from "../components/film-info/FilmInfo";
 import FilmSearchResults from "../components/film-search-results/FilmSearchResults";
 import { RouteProps } from 'react-router'
 
-export const MAIN_PAGE = '';
+export const MAIN_PAGE = '/';
 export const FILM_INFO = '/film-info';
 export const FILM_SEARCH_RESULTS = '/film-search-results'
 

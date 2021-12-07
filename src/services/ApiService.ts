@@ -1,18 +1,21 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 
 export class ApiService {
   readonly baseUrl: string;
 
-  readonly version: string;
-
-  constructor(baseUrl = '', version = 'v1') {
+  constructor(baseUrl = '') {
     this.baseUrl = baseUrl;
-    this.version = version;
   }
 
-  post = async <P, R>(method: string, param?: P): Promise<R> => {
-    const url = `api/${this.version}/${this.baseUrl}/${method}`;
-    const { data } = await axios.post(url, param);
-    return data.data;
+  post = async (method: string, param?: any, config?: AxiosRequestConfig) => {
+    const url = `api/${this.baseUrl}/${method}`;
+    const { data } = await axios.post(url, param, config);
+    return data;
   };
+
+  get = async (method: string, config?: AxiosRequestConfig) => {
+      const url = `api/${this.baseUrl}/${method}`;
+      const { data } = await axios.get(url, config);
+      return data;
+  }
 }

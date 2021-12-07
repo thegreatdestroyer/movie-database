@@ -1,10 +1,11 @@
-import { SET_LOADING_SEARCH_ACTION, SET_SEARCH_TEXT_ACTION } from './actions'
+import { SET_FOUND_DATA_ACTION, SET_LOADING_SEARCH_ACTION, SET_SEARCH_TEXT_ACTION } from './actions'
 import { TSearchPageActions, TSearchPageStorage } from './types'
 
 
 const initialState: TSearchPageStorage = {
     searchText: '',
-    isLoading: false
+    isLoading: false,
+    searchResults: null
 }
 
 
@@ -21,6 +22,13 @@ export const searchPageReducer = (state = initialState, action: TSearchPageActio
             return {
                 ...state,
                 isLoading: action.payload
+            }
+        }
+
+        case SET_FOUND_DATA_ACTION: {
+            return {
+                ...state,
+                searchResults: action.payload
             }
         }
 

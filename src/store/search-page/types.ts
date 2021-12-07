@@ -1,8 +1,10 @@
-import { SET_LOADING_SEARCH_ACTION, SET_SEARCH_TEXT_ACTION } from "./actions"
+import { TFindResponse } from "../../services/TitleService";
+import { SET_FOUND_DATA_ACTION, SET_LOADING_SEARCH_ACTION, SET_SEARCH_TEXT_ACTION } from "./actions"
 
 export type TSearchPageStorage = {
     searchText: string;
     isLoading: boolean;
+    searchResults: TFindResponse | null;
 }
 
 export type TSetSearchTextAction = {
@@ -15,5 +17,10 @@ export type TSetLoadingSearchAction = {
     payload: boolean;
 }
 
-export type TSearchPageActions = TSetSearchTextAction | TSetLoadingSearchAction;
+export type TSetFoundDataAction = {
+    type: typeof SET_FOUND_DATA_ACTION;
+    payload: TFindResponse
+}
+
+export type TSearchPageActions = TSetSearchTextAction | TSetLoadingSearchAction | TSetFoundDataAction;
 

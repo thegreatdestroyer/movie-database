@@ -1,7 +1,7 @@
 export type TFilmImage = {
     height: number;
     id: string;
-    url: string;
+    url?: string;
     width: number;
 }
 

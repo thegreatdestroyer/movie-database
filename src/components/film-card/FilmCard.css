@@ -1,0 +1,42 @@
+.results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.poster-headers {
+    display: flex;
+}
+
+.film-card {
+    width: 800px;
+    border: 1px solid black;
+    margin: 10px 10px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.poster {
+    width: 100px;
+    height: 100px;
+}
+
+.headers-container {
+    margin-left: 10px;
+}
+
+h1 {
+    font-size: 18px;
+    width: 300px;
+}
+
+h2 {
+    font-size: 12px;
+}
+
+ul {
+    width: 130px;
+}

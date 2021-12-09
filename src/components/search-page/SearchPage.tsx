@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../loader/Loader";
-import { TRootState } from "../../store";
 import { setSearchTextAction } from "../../store/search-page/actions";
 import { searchFilmActionThunk } from "../../store/search-page/thunk";
 import s from "./SearchPage.module.scss";
@@ -25,7 +24,7 @@ function SearchPage() {
         searchFilmActionThunk(searchText)
       ) as unknown as Promise<TFindResponse>
     ).then(() => {
-      const path = generatePath(FILM_SEARCH_RESULTS, {fillName: searchText});
+      const path = generatePath(FILM_SEARCH_RESULTS, {filmName: searchText});
       dispatch(setSearchTextAction(""));
       history.push(path);
     });

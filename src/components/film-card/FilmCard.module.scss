@@ -27,16 +27,30 @@
     margin-left: 10px;
   }
 
-  &h1 {
+  &__filmName {
+    display: block;
     font-size: 18px;
     width: 300px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: bold;
   }
 
-  &h2 {
-    font-size: 12px;
+  &__filmType {
+    display: block;
+    font-size: 14px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
-  &ul {
-    width: 130px;
+  &__actorsList {
+    width: 200px;
+  }
+  &__mockImage {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(235, 86, 86);
   }
 }

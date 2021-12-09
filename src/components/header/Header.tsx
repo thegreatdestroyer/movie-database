@@ -27,7 +27,7 @@ const Header = () => {
         searchFilmActionThunk(searchText)
       ) as unknown as Promise<TFindResponse>
     ).then(() => {
-    const path = generatePath(FILM_SEARCH_RESULTS, {fillName: searchText});
+    const path = generatePath(FILM_SEARCH_RESULTS, {filmName: searchText});
       dispatch(setSearchTextAction(""));
       history.push(path);
     });

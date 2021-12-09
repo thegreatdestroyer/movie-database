@@ -12,7 +12,6 @@ const Header = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const searchText = useSelector(selectSearchText);
-  //ToDo переписать в папку с селекторами
 
   const handleChange = ({
     target: { value },

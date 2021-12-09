@@ -1,7 +1,5 @@
 import React from "react";
-import "./FilmCard.css";
-import { useSelector } from "react-redux";
-import { TRootState } from "../../store";
+import s from "./FilmCard.module.scss";
 import { TFindResults } from "../../services/TitleService/models";
 
 type TProps = {
@@ -12,13 +10,13 @@ function FilmCard({filmInfo}: TProps) {
 
   return (
     <>
-      <div className="results-container">
-          <div className="film-card">
-            <div className="poster-headers">
+      <div className={s.FilmCard}>
+          <div className={s.FilmCard__card}>
+            <div className={s.FilmCard__posterHeaders}>
             {filmInfo?.image && (
-              <img src={filmInfo.image.url} alt="poster" className="poster" />
+              <img src={filmInfo.image.url} alt="poster" className={s.FilmCard__poster} />
             )}
-            <div className="headers-container">
+            <div className={s.FilmCard__headersContainer}>
               <h1>{filmInfo.title}</h1>
               <h2>{filmInfo.titleType}</h2>
             </div>

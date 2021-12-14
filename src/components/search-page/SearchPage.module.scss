@@ -1,0 +1,39 @@
+.SearchPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__titleBackground {
+    width: 100vw;
+    margin-top: 300px;
+    height: auto;
+    background-color: black;
+  }
+
+  &__formContainer {
+    width: 300px;
+    background: #ffffff;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-top: 10px;
+  }
+
+  &__titleName {
+    text-align: center;
+    color: white;
+    background-color: black;
+    font-size: 89px;
+  }
+
+  &__filmNameInput {
+    width: 300px;
+    margin-right: 20px;
+  }
+
+  &__searchFilmButton {
+    width: 70px;
+  }
+}

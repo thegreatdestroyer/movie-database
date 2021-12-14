@@ -12,7 +12,6 @@ const Header = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const searchText = useSelector(selectSearchText);
-  //ToDo переписать в папку с селекторами
 
   const handleChange = ({
     target: { value },
@@ -28,7 +27,7 @@ const Header = () => {
         searchFilmActionThunk(searchText)
       ) as unknown as Promise<TFindResponse>
     ).then(() => {
-    const path = generatePath(FILM_SEARCH_RESULTS, {fillName: searchText});
+    const path = generatePath(FILM_SEARCH_RESULTS, {filmName: searchText});
       dispatch(setSearchTextAction(""));
       history.push(path);
     });
